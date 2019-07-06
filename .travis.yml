@@ -1,0 +1,15 @@
+language: php
+php:
+  - 7.0
+script: 
+  - find . -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
+  # This one lists only files with erros
+  # - find . -type f -name '*.php' -exec php -l {} \; |grep -v "No syntax errors detected"
+deploy:
+  provider: script
+  script: deploy/deploy.sh
+  on:
+    tags: true
+env:
+  global:
+  - SVN_REPOSITORY=https://plugins.svn.wordpress.org/wpmktgengine-extension-bbpress/
