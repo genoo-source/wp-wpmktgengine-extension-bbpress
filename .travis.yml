@@ -1,10 +1,8 @@
 language: php
 php:
-  - 7.0
-script: 
-  - find . -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
-  # This one lists only files with erros
-  # - find . -type f -name '*.php' -exec php -l {} \; |grep -v "No syntax errors detected"
+- 7.0
+script:
+- find . -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
 deploy:
   provider: script
   script: deploy/deploy.sh
@@ -13,3 +11,5 @@ deploy:
 env:
   global:
   - SVN_REPOSITORY=https://plugins.svn.wordpress.org/wpmktgengine-extension-bbpress/
+  - secure: A4TJ5l4JfqmGSEnHj8XOEgzEWK9P4RQEzkKQW1iu4NSYVvjgZKdJ6O1lEmQ+ENiKCwV3Ad3UsGKTQkU6Og8c+xdnoQDH4CGm/Ns8qWavxk6g2N6L8ogQLXIhtue6OgL1JD6NZOv6S2DpuxTICwha4qrr4MYO7YGt27CLOiHb/BkE8zALjcbmSiXbSnWRG2ZY3pVWExkFhZtov/yiAstsWyvBKUsG5H9nFfirqr7i8at8ZixXqo8JyxgtTOdXShbKPKmYpHoSXNpCkbIZH6kdL4w5cfwGtIQt71ZwAMex5yb56ByELQgQ61BbvlwPBvWfLt2LP7V75WYPqc+O6ISFSPsl1VtfKu67YWmswdYyAMnra2pmi6fyt3PxETAanK8l42uO1fwERObaaLUqsfD3jutTVmO/wbsRoaxAj8YcO+8heEZYVfVdMRCA6jqCqnXVbb3/PrmBnzkmLJwkQYyfXl22g6caaLFtZ6pkV0vI37xgzkj9MNUCA45VQHxbaggO29yABi86R/uYBJdiwhhqZfRW4YteOyQbNmoYyN/yTMTasjfmV8kvNQ3pcaFUf7okhbhGk/DL2ZMNPcYOhNdGVGxc0F/xNkNosOy+Wy07dWz+qrmv9vUszouApjYMo3auHS8qUX33GF2bI2NTEaKGjRmv32nTKFJrgkiYJ0un79g=
+  - secure: b+FT3XDELDlovk9+0bA5LzZPEZaAKeLDT61d3qUGWW94M1kByIDnkjKx4hA2FarqIhXTGcGnmSmt4mDvBvo1Q2LU8oZLKXNfsm0RmMNtOst+fXrwJvUdgjQ8WtqD+M2qc2oPVpLJ2kN3qaV2xlolC8Uy5axaIDgttFDYXf5Jf48p7zCV1SQZvZb04ywn7D6RLnOz457fJrHrx8wfmZ5wtt0dROKjs3fsnMx7/afS6voj+R6ghvJfG/XaH6YHREPunScRWU1i5QXXYykztw06kUyAWfPzsNDgKJoGV9p8esPbzNWoAGGakc5kA2wq35P/3oGCWnhr78GPxjvp1CHpdOso52qsJ6mm8IZgTSxLSxc7kyFU5p0n6sIONwypl5StSjeQnsiHG0N4YgLgFhi6idVOxmADyrG4jTVq2FXMhP51gAzBNwz0nhxhhGG69IsrRa4aglPRE9l58827jmQ/r22HEgoo8UVrwqsbuMe9/FOc1IPE0wBj+6AmmdkbI9QpHf1ogrmz01FDpDNROF6GX4j7vmz/wW/R8lIyMCSvzCPaekDTlRDLNM+zOfdeUZrl/Tk4h9kHdeWgmQoziDp2JnAoD/qp72QtfQtHwGRhBmmGTwXBzEmWFtgdHy9fiJC8IBCN37pu0EemRFEoaBd0l3Vwwoceffgslwvd10aCZ3U=
