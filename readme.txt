@@ -5,7 +5,7 @@ Requires at least: 3.3
 Tested up to: 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.0.3
+Stable tag: 1.0.50
 
 Understand how your leads and customers are participating with your forums.
 
