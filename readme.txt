@@ -2,10 +2,10 @@
 Contributors: Genoo, latorante
 Tags: marketing automation, email marketing, lead capture forms
 Requires at least: 3.3
-Tested up to: 5.0
+Tested up to: 5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.0.50
+Stable tag: 1.0.51
 
 Understand how your leads and customers are participating with your forums.
 
