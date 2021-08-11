@@ -41,6 +41,6 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GenooBot
           SLACK_ICON: https://avatars.githubusercontent.com/u/50386665?s=200&v=4
-          SLACK_TITLE: WordPress Plugin - BuddyPress
+          SLACK_TITLE: WordPress Plugin - BBPress
           SLACK_MESSAGE: Deployment Successful
           MSG_MINIMAL: true
