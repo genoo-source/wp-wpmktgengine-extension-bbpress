@@ -1,0 +1,46 @@
+name: Deployed to WordPress
+on:
+  push:
+    tags:        
+      - '*'
+jobs:
+  linted:
+    name: PHP Syntax Error Free
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PHP Errors
+        run: |
+          find . -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
+  deploy:
+    name: Deploy to WordPress.org Plugin Repository
+    needs: linted
+    runs-on: ubuntu-latest
+    env:
+      SVN_REPOSITORY: https://plugins.svn.wordpress.org/wpmktgengine-extension-bbpress/
+      SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+      SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          ref: master
+      - name: Set Travis Tag ENV
+        run: echo "TRAVIS_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Deploy to SVN
+        run: |
+          sh ./deploy/deploy.sh
+  slack:
+    name: Slack Notification
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GenooBot
+          SLACK_ICON: https://avatars.githubusercontent.com/u/50386665?s=200&v=4
+          SLACK_TITLE: WordPress Plugin - BuddyPress
+          SLACK_MESSAGE: Deployment Successful
+          MSG_MINIMAL: true
