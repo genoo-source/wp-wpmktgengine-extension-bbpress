@@ -5,7 +5,7 @@
     Author:  Genoo, LLC
     Author URI: http://www.genoo.com/
     Author Email: info@genoo.com
-    Version: 1.0.12
+    Version: 1.0.13
     License: GPLv2
 */
 /*
@@ -177,8 +177,19 @@ add_action('wpmktengine_init', function($repositarySettings, $api, $cache){
         }
     }, 10, 1);
 
-}, 10, 3);
-
+        add_filter(
+            'wpmktengine_tools_extensions_widget',
+            function ($array) {
+                $array['Bbpress'] = '<span style="color:green">Active</span>';
+                return $array;
+            },
+            10,
+            1
+        );
+    },
+    10,
+    3
+);
 
 /**
  * Genoo / WPME deactivation function
